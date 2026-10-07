@@ -1,7 +1,7 @@
 const UsuarioRepository = require("../repositories/UsuarioRepository");
 const fs = require("fs").promises;
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 class UsuarioService {

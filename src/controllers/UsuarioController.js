@@ -28,6 +28,17 @@ class UsuarioController {
   }
 
   async cadastrar(req, res) {
+    /*  #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Dados do novo usuário',
+                schema: {
+                    $nome: 'Administrador',
+                    $email: 'admin@sabordigital.com',
+                    $senha: '123456',
+                    papel: 'admin'
+                }
+            }
+        */
     try {
       const dados = { ...req.body };
       const resultado = await UsuarioService.cadastrarUsuario(dados);
@@ -43,9 +54,9 @@ class UsuarioController {
 
   async login(req, res) {
     try {
-        const {email, senha} = req.body
-        const resultado = await UsuarioService.login(email, senha)
-        res.status(200).json(resultado)
+      const { email, senha } = req.body;
+      const resultado = await UsuarioService.login(email, senha);
+      res.status(200).json(resultado);
     } catch (erro) {
       res.status(erro.status || 500).json({
         sucesso: false,
